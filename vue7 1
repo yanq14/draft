@@ -1,0 +1,35 @@
+<head>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="box">
+        <button @click="isShow=!isShow">使用animate</button>
+        <transition enter-active-class="animated fadeInRightBig"
+          leave-active-class="animated flipOutY">
+            <v-tpl v-if="isShow"></v-tpl>
+        </transition>
+    </div>
+    <template id="tpl">
+        <ul class="nav-up">
+            <li><p>橙旭园</p></li>
+            <li><p>编程学校</p></li>
+            <li><p>欢迎你</p></li>
+        </ul>
+    </template>
+    <script type="text/javascipt">
+       new Vue({
+         el:'#box',
+         data:{
+            isShow:false
+         },
+         components:{
+            'v-tpl':{
+              template:'#tpl'
+            }
+         },
+         mounted(){
+            this.isShow=true;
+         }
+      })
+    </script>
+   
